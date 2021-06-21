@@ -18,15 +18,6 @@ def sql_create(con, cursorObj, sql_statement):
 def sql_table(con, df, table_name):
     df.astype(str).to_sql(table_name, con, if_exists='append', index=False)
 
-def sql_select(con, cursorObj, sql_statement):
-    cursorObj.execute(sql_statement)
-
-def sql_fetch(con, cursorObj, sql_statement):
-    cursorObj.execute(sql_statement)
-    rows = cursorObj.fetchall()
-
-    [print(row) for row in cursorObj.fetchall()]
-
 def sql_insert(con, cursorObj, sql_statement, data):
     cursorObj = con.cursor()
     cursorObj.execute(sql_statement, data)
